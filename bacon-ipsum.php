@@ -14,6 +14,7 @@
 namespace Flextype;
 
 use Thunder\Shortcode\Shortcode\ShortcodeInterface;
+use Flextype\Component\Registry\Registry;
 
 //
 // Shortcode: [bacon]
@@ -38,32 +39,32 @@ Shortcodes::driver()->addHandler('bacon', function(ShortcodeInterface $s) {
  */
 function bacon(string $type = 'all-meat', int $p = 1, int $sentences = 0, int $start_with_lorem = 0, string $format = 'text') : string
 {
-    if (Config::get('plugins.bacon-ipsum.type') && in_array(Config::get('plugins.bacon-ipsum.type'), ['all-meat', 'meat-and-filler'])) {
-        $type = '?type='.Config::get('plugins.bacon-ipsum.type');
+    if (Registry::get('plugins.bacon-ipsum.type') && in_array(Registry::get('plugins.bacon-ipsum.type'), ['all-meat', 'meat-and-filler'])) {
+        $type = '?type='.Registry::get('plugins.bacon-ipsum.type');
     } else {
         $type = '?type='.$type;
     }
 
-    if (Config::get('plugins.bacon-ipsum.p')) {
-        $p = '&paras='.Config::get('plugins.bacon-ipsum.p');
+    if (Registry::get('plugins.bacon-ipsum.p')) {
+        $p = '&paras='.Registry::get('plugins.bacon-ipsum.p');
     } else {
         $p = '&paras='.$p;
     }
 
-    if (Config::get('plugins.bacon-ipsum.sentences')) {
-        $sentences = '&sentences='.Config::get('plugins.bacon-ipsum.sentences');
+    if (Registry::get('plugins.bacon-ipsum.sentences')) {
+        $sentences = '&sentences='.Registry::get('plugins.bacon-ipsum.sentences');
     } else {
         $sentences = '&sentences='.$sentences;
     }
 
-    if (Config::get('plugins.bacon-ipsum.start_with_lorem') && in_array($start_with_lorem, ['0', '1'])) {
-        $start_with_lorem = '&start-with-lorem='.Config::get('plugins.bacon-ipsum.start_with_lorem');
+    if (Registry::get('plugins.bacon-ipsum.start_with_lorem') && in_array($start_with_lorem, ['0', '1'])) {
+        $start_with_lorem = '&start-with-lorem='.Registry::get('plugins.bacon-ipsum.start_with_lorem');
     } else {
         $start_with_lorem = '&start-with-lorem='.$start_with_lorem;
     }
 
-    if (Config::get('plugins.bacon-ipsum.format') && in_array($format, ['json', 'text', 'html'])) {
-        $format = '&format='.Config::get('plugins.bacon-ipsum.format');
+    if (Registry::get('plugins.bacon-ipsum.format') && in_array($format, ['json', 'text', 'html'])) {
+        $format = '&format='.Registry::get('plugins.bacon-ipsum.format');
     } else {
         $format = '&format='.$format;
     }
