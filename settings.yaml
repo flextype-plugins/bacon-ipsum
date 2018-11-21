@@ -1,0 +1,6 @@
+enabled: true
+type: all-meat
+p: 5
+sentences: 0
+start_with_lorem: 1
+format: text

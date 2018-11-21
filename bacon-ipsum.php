@@ -15,16 +15,19 @@ namespace Flextype;
 
 use Thunder\Shortcode\Shortcode\ShortcodeInterface;
 use Flextype\Component\Registry\Registry;
+use Flextype\Component\Event\Event;
 
-//
-// Shortcode: [bacon]
-//
-Shortcodes::driver()->addHandler('bacon', function(ShortcodeInterface $s) {
-      return bacon($s->getParameter('type') ?? 'all-meat',
-                   $s->getParameter('p') ?? 1,
-                   $s->getParameter('sentences') ?? 0,
-                   $s->getParameter('start_with_lorem') ?? 0,
-                   $s->getParameter('format') ?? 'text');
+// Event: onShortcodesInitialized
+Event::addListener('onShortcodesInitialized', function () {
+
+    // Shortcode: [bacon]
+    Content::shortcode()->addHandler('bacon', function(ShortcodeInterface $s) {
+        return bacon($s->getParameter('type') ?? 'all-meat',
+                     $s->getParameter('p') ?? 1,
+                     $s->getParameter('sentences') ?? 0,
+                     $s->getParameter('start_with_lorem') ?? 0,
+                     $s->getParameter('format') ?? 'text');
+    });
 });
 
 /**
