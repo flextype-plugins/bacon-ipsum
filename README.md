@@ -1,6 +1,6 @@
 # Bacon Ipsum Plugin for [Flextype](http://flextype.org/)
-![version](https://img.shields.io/badge/version-1.1.1-brightgreen.svg?style=flat-square "Version")
-![Flextype](https://img.shields.io/badge/Flextype-0.7.0-green.svg?style=flat-square "Flextype Version")
+![version](https://img.shields.io/badge/version-1.1.2-brightgreen.svg?style=flat-square "Version")
+![Flextype](https://img.shields.io/badge/Flextype-0.8.3-green.svg?style=flat-square "Flextype Version")
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/flextype-plugins/bacon-ipsum/blob/master/LICENSE.txt)
 
 ![BaconIpsum](bacon-ipsum.jpg)
@@ -57,13 +57,13 @@ Simple usage
 ```
 
 ```php
-<?php echo bacon(); ?>
+<?= bacon() ?>
 ```
 
 Usage with options
 
 ```php
-<?php echo bacon('meat-and-filler', 5, 1, 3, 'json'); ?>
+<?= bacon('meat-and-filler', 5, 1, 3, 'json') ?>
 ```
 
 ## Settings

@@ -21,7 +21,7 @@ use Flextype\Component\Event\Event;
 Event::addListener('onShortcodesInitialized', function () {
 
     // Shortcode: [bacon]
-    Content::shortcode()->addHandler('bacon', function(ShortcodeInterface $s) {
+    Entries::shortcode()->addHandler('bacon', function(ShortcodeInterface $s) {
         return bacon($s->getParameter('type') ?? 'all-meat',
                      $s->getParameter('p') ?? 1,
                      $s->getParameter('sentences') ?? 0,
